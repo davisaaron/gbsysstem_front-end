@@ -34,8 +34,8 @@
 		<input type="text" id="cardName" name="cardName" class="form-control form-control-sm" placeholder="Card Name" ><br>
 		<input type="text" id="cardNo" name="cardNo" class="form-control form-control-sm" placeholder="Card No"><br>
 		<input type="text" id="zipCode" name="zipCode" class="form-control form-control-sm" placeholder="ZipCode"><br>
-		<input type="text" id="bid" name="bid" class="form-control form-control-sm" placeholder= "bid"><br>
-		<input type="text" id="cid" name="cid" class="form-control form-control-sm" placeholder= "cid"><br>
+		<input type="text" id="BID" name="BID" class="form-control form-control-sm" placeholder= "BID"><br>
+		<input type="text" id="CID" name="CID" class="form-control form-control-sm" placeholder= "CID"><br>
 		
 		
 			

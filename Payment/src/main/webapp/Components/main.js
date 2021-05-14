@@ -10,8 +10,8 @@ $(function (){
 	var $cardName = $('#cardName');
 	var $cardNo = $('#cardNo');
 	var $zipCode = $('#zipCode');
-	var $bid = $('#bid');
-	var $cid = $('#cid');
+	var $BID = $('#BID');
+	var $CID = $('#CID');
 	
 	
 
@@ -26,8 +26,8 @@ $(function (){
 							+'Card Name:<span class="noedit cardName">' + app.cardName +'</span><input class="edit cardName"/>'+'<br>'
 							+'Card No:<span class="noedit cardNo">'+ app.cardNo +'</span><input class="edit cardNo"/> '+'<br>'
 							+'ZipCode:<span class="noedit cipCode">'+ app.zipCode +'</span><input class="edit zipCode"/> '+'<br>'
-							+'BID:<span class="noedit bid">'+ app.BID +'</span><input class="edit bid"/> '+'<br>'
-							+'CID:<span class="noedit cid">'+ app.CID +'</span><input class="edit cid"/>'+' <br>'
+							+'BID:<span class="noedit BID">'+ app.BID +'</span><input class="edit BID"/> '+'<br>'
+							+'CID:<span class="noedit CID">'+ app.CID +'</span><input class="edit CID"/>'+' <br>'
 							+'<input type="button" id="'+ app.PID +'" value="Remove" class="btn btn-outline-danger remove">'+'<br>'
 							+'<input type="button" " value="Edit" class="editapp btn btn-outline-primary noedit">'+'<br>'
 							+'<input type="button" " value="Save" class="saveedit btn btn-outline-success edit">'+'<br>'
@@ -69,8 +69,8 @@ $(function (){
 				cardName: $cardName.val(),
 				cardNo: $cardNo.val(),
 				zipCode: $zipCode.val(),
-				bid: $bid.val(),
-				cid: $cid.val(),
+				BID: $BID.val(),
+				CID: $CID.val(),
 
 		};
 		
@@ -92,8 +92,8 @@ $(function (){
 						+'cardName:<span class="noedit cardName">' + newPayment.cardName +'</span><input class="edit cardName"/>c'+'<br>'
 						+'cardNo:<span class="noedit cardNo">'+ newPayment.cardNo +'</span><input class="edit cardNo"/> '+'<br>'
 						+'zipCode:<span class="noedit zipCode">'+ newPayment.zipCode +'</span><input class="edit zipCode"/> '+'<br>'
-						+'bid:<span class="noedit bid">'+ newPayment.BID +'</span><input class="edit bid"/>'+'<br>'
-						+'cid:<span class="noedit cid">'+ newPayment.CID +'</span><input class="edit cid"/> '+'<br>'
+						+'BID:<span class="noedit BID">'+ newPayment.BID +'</span><input class="edit BID"/>'+'<br>'
+						+'CID:<span class="noedit CID">'+ newPayment.CID +'</span><input class="edit CID"/> '+'<br>'
 						+'<input type="button" id="'+ newPayment.PID +'" value="Remove" class="btn btn-outline-danger remove">'+'<br>'
 						+'<input type="button" " value="Edit" class="editapp btn btn-outline-primary noedit">'+'<br>'
 						+'<input type="button" " value="Save" class="saveedit btn btn-outline-success edit">'+'<br>'
@@ -132,15 +132,15 @@ $(function (){
 			 return "Insert zipCode.";
 			 }
 
-			//bid
-			if ($("#bid").val().trim() == "")
+			//BID
+			if ($("#BID").val().trim() == "")
 			 {
-			 return "Insert bid.";
+			 return "Insert BID.";
 			 }
 
-			if ($("#cid").val().trim() == "")
+			if ($("#CID").val().trim() == "")
 			 {
-			 return "Insert cid.";
+			 return "Insert CID.";
 			 }
 
 			return true;
@@ -183,8 +183,8 @@ $apps.delegate('.editapp','click',function(){
 		$li.find('input.cardName').val($li.find('span.cardName').html());
 		$li.find('input.cardNo').val($li.find('span.cardNo').html());
 		$li.find('input.zipCode').val($li.find('span.zipCode').html());
-		$li.find('input.bid').val($li.find('span.bid').html());
-		$li.find('input.cid').val($li.find('span.cid').html());
+		$li.find('input.BID').val($li.find('span.BID').html());
+		$li.find('input.CID').val($li.find('span.CID').html());
 		$li.addClass('edit');
 	});
 	
@@ -200,8 +200,8 @@ $apps.delegate('.editapp','click',function(){
 				cardName: $li.find('input.cardName').val(),
 				cardNo: $li.find('input.cardNo').val(),
 				zipCode: $li.find('input.zipCode').val(),
-				bid: $li.find('input.bid').val(),
-				cid: $li.find('input.cid').val()
+				BID: $li.find('input.BID').val(),
+				CID: $li.find('input.CID').val()
 				
 		};
 		
@@ -222,8 +222,8 @@ $apps.delegate('.editapp','click',function(){
 				$li.find('span.cardName').html(app.cardName);
 				$li.find('span.cardNo').html(app.cardNo);
 				$li.find('span.zipCode').html(app.zipCode);
-				$li.find('span.bid').html(app.bid);
-				$li.find('span.cid').html(app.cid);
+				$li.find('span.BID').html(app.BID);
+				$li.find('span.CID').html(app.CID);
 				$li.removeClass('edit');
 				
 				$("#alertSuccess").text("Your Payment Details Updated Successfully");
