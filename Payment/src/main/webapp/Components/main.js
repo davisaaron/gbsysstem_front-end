@@ -89,7 +89,7 @@ $(function (){
 				console.log("Inserted");
 				$apps.append('<li><div class="card shadow-lg p-3 mb-5 bg-white rounded bg-light m-2\" style=\"width: 12rem;float: left;">'
 						+'PID:<span class="noedit PID">' + newPayment.PID +'</span><input class="edit PID"/>'+'<br>'
-						+'cardName:<span class="noedit cardName">' + newPayment.cardName +'</span><input class="edit cardName"/>c'+'<br>'
+						+'cardName:<span class="noedit cardName">' + newPayment.cardName +'</span><input class="edit cardName"/>'+'<br>'
 						+'cardNo:<span class="noedit cardNo">'+ newPayment.cardNo +'</span><input class="edit cardNo"/> '+'<br>'
 						+'zipCode:<span class="noedit zipCode">'+ newPayment.zipCode +'</span><input class="edit zipCode"/> '+'<br>'
 						+'BID:<span class="noedit BID">'+ newPayment.BID +'</span><input class="edit BID"/>'+'<br>'
