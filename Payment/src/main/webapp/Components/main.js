@@ -4,14 +4,15 @@ $(document).ready(function()
 	 $("#alertError").hide();
 }); 
 
-
 $(function (){
 	var $apps = $('#apps');
+	var $PID = $('#PID');
 	var $cardName = $('#cardName');
 	var $cardNo = $('#cardNo');
 	var $zipCode = $('#zipCode');
-	var $bid = $('#BID');
-	var $cid = $('#CID');
+	var $bid = $('#bid');
+	var $cid = $('#cid');
+	
 	
 
 	$.ajax({
@@ -21,11 +22,12 @@ $(function (){
 			//console.log('success',data);
 			$.each(apps, function(i, app){
 				$apps.append('<li><div class="card shadow-lg p-3 mb-5 bg-white rounded bg-light m-2\" style=\"width: 12rem;float: left;">'
+							+'PID:<span class="noedit PID">' + app.PID +'</span><input class="edit PID"/>'+'<br>'
 							+'Card Name:<span class="noedit cardName">' + app.cardName +'</span><input class="edit cardName"/>'+'<br>'
 							+'Card No:<span class="noedit cardNo">'+ app.cardNo +'</span><input class="edit cardNo"/> '+'<br>'
 							+'ZipCode:<span class="noedit cipCode">'+ app.zipCode +'</span><input class="edit zipCode"/> '+'<br>'
-							+'BID:<span class="noedit BID">'+ app.BID +'</span><input class="edit bid"/> '+'<br>'
-							+'CID:<span class="noedit CID">'+ app.CID +'</span><input class="edit cid"/>'+' <br>'
+							+'BID:<span class="noedit bid">'+ app.BID +'</span><input class="edit bid"/> '+'<br>'
+							+'CID:<span class="noedit cid">'+ app.CID +'</span><input class="edit cid"/>'+' <br>'
 							+'<input type="button" id="'+ app.PID +'" value="Remove" class="btn btn-outline-danger remove">'+'<br>'
 							+'<input type="button" " value="Edit" class="editapp btn btn-outline-primary noedit">'+'<br>'
 							+'<input type="button" " value="Save" class="saveedit btn btn-outline-success edit">'+'<br>'
@@ -63,6 +65,7 @@ $(function (){
 		
         //IF valid		
 		var app = {
+				PID: $PID.val(),
 				cardName: $cardName.val(),
 				cardNo: $cardNo.val(),
 				zipCode: $zipCode.val(),
@@ -85,11 +88,12 @@ $(function (){
 			success: function(newPayment){
 				console.log("Inserted");
 				$apps.append('<li><div class="card shadow-lg p-3 mb-5 bg-white rounded bg-light m-2\" style=\"width: 12rem;float: left;">'
-						+'cardName:<span class="noedit cardName">' + newPayment.cardName +'</span><input class="edit cardName"/>'+'<br>'
-						+'cardNo:<span class="noedit nic">'+ newPayment.cardNo +'</span><input class="edit cardNo"/> '+'<br>'
+						+'PID:<span class="noedit PID">' + newPayment.PID +'</span><input class="edit PID"/>'+'<br>'
+						+'cardName:<span class="noedit cardName">' + newPayment.cardName +'</span><input class="edit cardName"/>c'+'<br>'
+						+'cardNo:<span class="noedit cardNo">'+ newPayment.cardNo +'</span><input class="edit cardNo"/> '+'<br>'
 						+'zipCode:<span class="noedit zipCode">'+ newPayment.zipCode +'</span><input class="edit zipCode"/> '+'<br>'
-						+'bid:<span class="noedit bid">'+ newPayment.bid +'</span><input class="edit bid"/>'+'<br>'
-						+'cid:<span class="noedit cid">'+ newPayment.cid +'</span><input class="edit cid"/> '+'<br>'
+						+'bid:<span class="noedit bid">'+ newPayment.BID +'</span><input class="edit bid"/>'+'<br>'
+						+'cid:<span class="noedit cid">'+ newPayment.CID +'</span><input class="edit cid"/> '+'<br>'
 						+'<input type="button" id="'+ newPayment.PID +'" value="Remove" class="btn btn-outline-danger remove">'+'<br>'
 						+'<input type="button" " value="Edit" class="editapp btn btn-outline-primary noedit">'+'<br>'
 						+'<input type="button" " value="Save" class="saveedit btn btn-outline-success edit">'+'<br>'
@@ -175,8 +179,7 @@ $(function (){
 $apps.delegate('.editapp','click',function(){
 		
 		var $li=$(this).closest('li');
-		
-		$li.find('input.pid').val($li.find('span.pid').html());
+		$li.find('input.PID').val($li.find('span.PID').html());
 		$li.find('input.cardName').val($li.find('span.cardName').html());
 		$li.find('input.cardNo').val($li.find('span.cardNo').html());
 		$li.find('input.zipCode').val($li.find('span.zipCode').html());
@@ -193,7 +196,7 @@ $apps.delegate('.editapp','click',function(){
 	$apps.delegate('.saveedit','click',function(){
 		var $li=$(this).closest('li');
 		var app={
-				
+				PID: $li.find('input.PID').val(),
 				cardName: $li.find('input.cardName').val(),
 				cardNo: $li.find('input.cardNo').val(),
 				zipCode: $li.find('input.zipCode').val(),
@@ -215,7 +218,7 @@ $apps.delegate('.editapp','click',function(){
 			dataType: 'json',
 			
 			success: function(){
-
+				$li.find('span.PID').html(app.PID);
 				$li.find('span.cardName').html(app.cardName);
 				$li.find('span.cardNo').html(app.cardNo);
 				$li.find('span.zipCode').html(app.zipCode);
